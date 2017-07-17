@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "UIButton+Extension.h"
 
 @interface ViewController ()
 
@@ -17,6 +18,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    UIButton *btn = [UIButton yhh_buttonWithSetProperty:^(UIButton *btn) {
+        btn.yhh_title(@"btn", UIControlStateNormal)
+        .yhh_title(@"Selected", UIControlStateSelected)
+        .yhh_titleColor([UIColor blueColor], UIControlStateNormal)
+        .yhh_titleColor([UIColor redColor], UIControlStateSelected);
+        
+        btn.frame = CGRectMake(100, 100, 100, 100);
+        
+    } action:^(UIButton *btn) {
+        btn.selected = !btn.selected;
+    }];
+    
+    [self.view addSubview:btn];
+    
 }
 
 

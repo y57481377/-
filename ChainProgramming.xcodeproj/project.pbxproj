@@ -15,6 +15,7 @@
 		2FD9E80D1F1D0EE900AB18A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FD9E80B1F1D0EE900AB18A1 /* LaunchScreen.storyboard */; };
 		2FD9E8181F1D0EE900AB18A1 /* ChainProgrammingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD9E8171F1D0EE900AB18A1 /* ChainProgrammingTests.m */; };
 		2FD9E8231F1D0EE900AB18A1 /* ChainProgrammingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD9E8221F1D0EE900AB18A1 /* ChainProgrammingUITests.m */; };
+		2FD9E8321F1D0F4700AB18A1 /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD9E8311F1D0F4700AB18A1 /* UIButton+Extension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		2FD9E81E1F1D0EE900AB18A1 /* ChainProgrammingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChainProgrammingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FD9E8221F1D0EE900AB18A1 /* ChainProgrammingUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChainProgrammingUITests.m; sourceTree = "<group>"; };
 		2FD9E8241F1D0EE900AB18A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FD9E8301F1D0F4700AB18A1 /* UIButton+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extension.h"; sourceTree = "<group>"; };
+		2FD9E8311F1D0F4700AB18A1 /* UIButton+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,8 @@
 		2FD9E7FC1F1D0EE900AB18A1 /* ChainProgramming */ = {
 			isa = PBXGroup;
 			children = (
+				2FD9E8301F1D0F4700AB18A1 /* UIButton+Extension.h */,
+				2FD9E8311F1D0F4700AB18A1 /* UIButton+Extension.m */,
 				2FD9E8001F1D0EE900AB18A1 /* AppDelegate.h */,
 				2FD9E8011F1D0EE900AB18A1 /* AppDelegate.m */,
 				2FD9E8031F1D0EE900AB18A1 /* ViewController.h */,
@@ -207,7 +212,7 @@
 				TargetAttributes = {
 					2FD9E7F91F1D0EE900AB18A1 = {
 						CreatedOnToolsVersion = 8.3.2;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					2FD9E8121F1D0EE900AB18A1 = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -274,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FD9E8051F1D0EE900AB18A1 /* ViewController.m in Sources */,
+				2FD9E8321F1D0F4700AB18A1 /* UIButton+Extension.m in Sources */,
 				2FD9E8021F1D0EE900AB18A1 /* AppDelegate.m in Sources */,
 				2FD9E7FF1F1D0EE900AB18A1 /* main.m in Sources */,
 			);
@@ -424,6 +430,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ChainProgramming/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -437,6 +444,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ChainProgramming/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
