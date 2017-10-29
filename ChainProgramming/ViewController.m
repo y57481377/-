@@ -28,12 +28,29 @@
         
     } action:^(UIButton *btn) {
         btn.selected = !btn.selected;
+        if (btn.selected) {
+            [self creatBtn];
+        }
     }];
     
     [self.view addSubview:btn];
     
 }
 
+- (void)creatBtn {
+    UIButton *btn = [UIButton yhh_buttonWithSetProperty:^(UIButton *btn) {
+        btn.yhh_title(@"btn", UIControlStateNormal)
+        .yhh_title(@"Selected", UIControlStateSelected)
+        .yhh_titleColor([UIColor blueColor], UIControlStateNormal)
+        .yhh_titleColor([UIColor redColor], UIControlStateSelected);
+        btn.backgroundColor = [UIColor redColor];
+        btn.frame = CGRectMake(100, 200, 100, 100);
+        
+    } action:^(UIButton *btn) {
+        [btn removeFromSuperview];
+    }];
+    [self.view addSubview:btn];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

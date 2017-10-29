@@ -49,9 +49,12 @@
 }
 @end
 
-
 @implementation UIButton (Set)
-static void(^actionBlock)(UIButton *btn);
+
+typedef void(^actionBlock)(UIButton *btn);
+static NSMutableDictionary *_blockDic;
+//static void(^actionBlock)(UIButton *btn);
+
 - (setBlock)yhh_title {
     __weak typeof(self) weakSelf = self;
     return ^UIButton *(NSString *str, UIControlState state) {
@@ -93,19 +96,27 @@ static void(^actionBlock)(UIButton *btn);
     };
 }
 
-+ (instancetype)yhh_buttonWithSetProperty:(void(^)(UIButton *btn))setProperty action:(void(^)(UIButton *btn))action {
++ (instancetype)yhh_buttonWithSetProperty:(void(^)(UIButton *btn))setProperty action:(actionBlock)action {
     
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     if(setProperty) setProperty(btn);
     
-    actionBlock = action;
+    if (!_blockDic) {
+        _blockDic = @{}.mutableCopy;
+    }
+    [_blockDic setObject:action forKey:@(btn.hash)];
     [btn addTarget:self action:@selector(touchAction:) forControlEvents:UIControlEventTouchUpInside];
     return btn;
 }
 
 + (void)touchAction:(UIButton *)btn {
-    if (actionBlock) {
-        actionBlock(btn);
+    actionBlock block = _blockDic[@(btn.hash)];
+    if (block) {
+        block(btn);
     }
+}
+
+- (void)dealloc {
+    [_blockDic removeObjectForKey:@(self.hash)];
 }
 @end
